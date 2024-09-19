@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | News homepage</title>
+    <!-- css start from here -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        transition: all 0.35s;
+        font-family: "Inter";
+      }
+      a {
+        color: hsl(236, 13%, 42%);
+        margin: 0 15px;
+        text-decoration: none;
+      }
+      a:hover {
+        color: hsl(5, 85%, 63%);
+      }
+      .navbar {
+        display: flex;
+        margin: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .column-1 {
+        width: 65%;
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+      .column-2 {
+        margin-left: 10px;
+        margin-top: 10px;
+        background-color: #00001a;
+        padding: 20px;
+        width: 30%;
+      }
+      .img {
+        width: 100%;
+      }
+      .flex {
+        display: flex;
+        justify-content: space-around;
+      }
+      .column-container {
+        display: flex;
+        justify-content: center;
+      }
+      .orange {
+        color: hsl(35, 77%, 62%);
+        margin-bottom: 25px;
+      }
+      .white {
+        color: white;
+        margin: 20px 0;
+        cursor: pointer;
+      }
+      .col-11 {
+        width: 90px;
+        margin: 20px 10px;
+      }
+      .col-22 {
+        width: 100%;
+        margin: 20px 10px;
+      }
+      .gray {
+        color: hsl(233, 8%, 79%);
+        margin: 20px 0;
+      }
+      .hover:hover {
+        color: hsl(5, 85%, 63%);
+        cursor: pointer;
+      }
+      .main-container {
+        padding: 2rem 15rem;
+        height: 100vh;
+        width: 100%;
+      }
+      .readMore {
+        background-color: hsl(5, 85%, 63%);
+        color: black;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: 700;
+        border: none;
+        outline: none;
+        padding: 12px 25px;
+        margin: 20px 0;
+        cursor: pointer;
+      }
+      .readMore:hover {
+        background-color: black;
+        color: white;
+      }
+      .card-section {
+        display: flex;
+        justify-content: space-between;
+      }
+      .fifty {
+        width: 50%;
+      }
+      .bright {
+        font-weight: 900;
+        font-size: 40px;
+      }
+      .red {
+        color: hsl(5, 85%, 63%);
+      }
+      .col-1,
+      col-2 {
+        margin: 10px;
+      }
+      .space {
+        margin: 10px 0;
+      }
+      .icon-menu {
+        cursor: pointer;
+      }
+      .none {
+        display: none;
+      }
+      .white:hover {
+        color: hsl(35, 77%, 62%);
+      }
+      @media (max-width: 1497px) {
+        .main-container {
+          padding: 2rem 8rem;
+        }
+      }
+      @media (max-width: 1400px) {
+        .main-container {
+          padding: 2rem 4rem;
+        }
+      }
+      @media (max-width: 1047px) {
+        .main-container {
+          padding: 2rem;
+        }
+      }
+      @media (max-width: 937px) {
+        .main-container {
+          padding: 1rem;
+        }
+        .column-container {
+          flex-direction: column;
+        }
+        .column-1,
+        .column-2 {
+          width: 100%;
+          margin: 0;
+        }
+        .bright {
+          margin: 10px 0;
+        }
+        .col-1,
+        .col-2 {
+          width: 100%;
+        }
+        .card {
+          width: 100%;
+          display: flex;
+        }
+      }
+      @media (max-width: 720px) {
+        .card-section {
+          flex-direction: column;
+        }
+        .col {
+          flex-direction: column;
+          display: flex;
+        }
+        .col-11 {
+          width: 30%;
+          /* margin-top: 20px; */
+          margin-bottom: 10px;
+          margin-right: 10px;
+          margin-left: 0;
+        }
+        .col-22 {
+          margin-bottom: 10px;
+          margin-left: 10px;
+          margin-right: 0;
+          width: 70%;
+        }
+      }
+      @media (max-width: 399px) {
+        .col-11 {
+          width: 200px;
+        }
+        .col-22 {
+          width: 100%;
+        }
+        .card {
+          flex-direction: column;
+        }
+      }
+      .menu-icon {
+        cursor: pointer;
+        display: none;
+      }
+
+      @media (max-width: 937px) {
+        .nav-menu {
+          flex-direction: column;
+          background-color: white;
+          position: absolute;
+          top: 1px;
+          height: 100vh;
+          width: 50%;
+          right: 1px;
+          padding: 20px;
+        }
+
+        .none {
+          display: none;
+        }
+      }
+      .menu-icon {
+        display: none;
+      }
+
+      @media (max-width: 937px) {
+        .nav-menu {
+          flex-direction: column;
+          background-color: white;
+          position: absolute;
+          top: 1px;
+          height: 100vh;
+          width: 50%;
+          right: 1px;
+          padding: 20px;
+        }
+
+        .menu-icon {
+          display: block;
+        }
+
+        .nav-menu {
+          display: none;
+        }
+
+        .nav-menu.show {
+          display: flex;
+        }
+
+        .nav-menu a {
+          display: block;
+          margin: 30px 0;
+        }
+
+        .close-menu {
+          position: absolute;
+          top: 30px;
+          right: 20px;
+          cursor: pointer;
+        }
+      }
+
+      @media (min-width: 938px) {
+        #menu-close {
+          display: none;
+        }
+      }
+    </style>
+  <!-- css end from here -->
+  </head>
+  <body>
+    <!-- html start from here -->
+    <div class="main-container">
+      <nav class="navbar">
+        <div class="logo">
+          <img src="./assets/images/logo.svg" alt="Logo" />
+        </div>
+        <div class="menu-icon">
+          <img
+          id="menu-open"
+            src="./assets/images/icon-menu.svg"
+            alt="Open Menu"
+            />
+          </div>
+        <div class="nav-menu">
+          <img
+            id="menu-close"
+            class="close-menu"
+            src="./assets/images/icon-menu-close.svg"
+            alt="Close Menu"
+          />
+          <a href="">Home</a>
+          <a href="">New</a>
+          <a href="">Popular</a>
+          <a href="">Trending</a>
+          <a href="">Categories</a>
+        </div>
+      </nav>
+
+      <div class="column-container">
+        <div class="column-1">
+          <img
+            class="img show"
+            src="./assets/images/image-web-3-desktop.jpg"
+            alt="Web 3.0"
+          />
+          <img
+            class="img none"
+            src="./assets/images/image-web-3-mobile.jpg"
+            alt=""
+          />
+          <div class="flex col">
+            <div class="col-1 fifty">
+              <h2 class="bright">
+                The Bright <br />
+                Future of <br />
+                Web 3.0?
+              </h2>
+            </div>
+            <div class="col-2 fifty">
+              <p class="space">
+                We dive into the next evolution of the web that claims to put
+                the power of the platforms back into the hands of the people.
+                But is it really fulfilling its promise?
+              </p>
+              <button class="readMore">Read More</button>
+            </div>
+          </div>
+        </div>
+        <div class="column-2">
+          <h2 class="orange">New</h2>
+          <h3 class="white">Hydrogen VS Electric Cars</h3>
+          <p class="gray">Will hydrogen-fueled cars ever catch up to EVs?</p>
+          <hr />
+          <h3 class="white">The Downsides of AI Artistry</h3>
+          <p class="gray">
+            What are the possible adverse effects of on-demand AI image
+            generation?
+          </p>
+          <hr />
+          <h3 class="white">Is VC Funding Drying Up?</h3>
+          <p class="gray">
+            Private funding by VC firms is down 50% YOY. We take a look at what
+            that means.
+          </p>
+        </div>
+      </div>
+      <div class="card-section flex">
+        <div class="card flex">
+          <div class="col-11">
+            <img
+              class="img"
+              src="./assets/images/image-retro-pcs.jpg"
+              alt="Retro PCs"
+            />
+          </div>
+          <div class="col-22">
+            <h2 class="red">Q1</h2>
+            <h4 class="hover">Reviving Retro PCs</h4>
+            <p>What happens when old PCs are given modern upgrades?</p>
+          </div>
+        </div>
+        <div class="card flex">
+          <div class="col-11">
+            <img
+              class="img"
+              src="./assets/images/image-top-laptops.jpg"
+              alt="Top Laptops"
+            />
+          </div>
+          <div class="col-22">
+            <h2 class="red">Q2</h2>
+            <h4 class="hover">Top 10 Laptops of 2022</h4>
+            <p>Our best picks for various needs and budgets.</p>
+          </div>
+        </div>
+        <div class="card flex">
+          <div class="col-11">
+            <img
+              class="img"
+              src="./assets/images/image-gaming-growth.jpg"
+              alt="Gaming Growth"
+            />
+          </div>
+          <div class="col-22">
+            <h2 class="red">Q3</h2>
+            <h4 class="hover">The Growth of Gaming</h4>
+            <p>How the pandemic has sparked fresh opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- html end from here -->
+    <!-- js start from here -->
+    <script>
+      const menuOpen = document.getElementById("menu-open");
+      const menuClose = document.getElementById("menu-close");
+      const navMenu = document.querySelector(".nav-menu");
+      
+      menuOpen.addEventListener("click", () => {
+        navMenu.classList.add("show"); // Add 'show' to display the menu
+        menuOpen.classList.add("none");
+      });
+
+      menuClose.addEventListener("click", () => {
+        navMenu.classList.remove("show"); // Remove 'show' to hide the menu
+        menuOpen.classList.remove("none");
+      });
+    </script>
+  <!-- js end from here -->
+  </body>
+</html>
